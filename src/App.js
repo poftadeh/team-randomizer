@@ -5,8 +5,9 @@ import PlayerList from './components/screens/PlayerList';
 import { Player } from './types.js';
 
 const Views = {
-  PlayerCount,
-  PlayerList,
+  PlayerCount: Symbol('PlayerCount'),
+  PlayerList: Symbol('PlayerList'),
+  GenerateTeams: Symbol('GenerateTeams'),
 };
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
       lineups: [],
       activeView: Views.PlayerCount,
     };
-
+    this.previousScreen = this.state.activeView;
     this.createPlayers = this.createPlayers.bind(this);
   }
   render() {
@@ -44,7 +45,12 @@ class App extends Component {
   }
 
   changeView(view) {
+    this.previousScreen = this.state.activeView;
     this.setState({ activeView: view });
+  }
+
+  goBack() {
+    this.changeView(this.previousScreen);
   }
 }
 
