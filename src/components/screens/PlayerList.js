@@ -6,8 +6,15 @@ export default class PlayerList extends Component {
     return (
       <div>
         {this.props.players.map(player => (
-          <div key={player.name} class="input-group mb-3">
-            <PlayerEdit playerName={player.name} playerList={this.props.players} />
+          <div key={player.name} className="input-group mb-3">
+            <PlayerEdit
+              currentPlayer={player}
+              playerList={this.props.players}
+              handleSelect={e => {
+                player.setVeto(e.target.value);
+                console.log(e.target.value, player);
+              }}
+            />
           </div>
         ))}
       </div>

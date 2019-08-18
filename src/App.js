@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import PlayerCount from './components/screens/PlayerCount';
 import PlayerList from './components/screens/PlayerList';
+import { Player } from './types.js';
 
 const Views = {
   PlayerCount,
@@ -35,24 +36,15 @@ class App extends Component {
 
   createPlayers(number) {
     const players = [];
-
     for (let i = 0; i < number; i++) {
-      players.push({ id: i, name: `Player ${i + 1}`, veto: null });
+      players.push(new Player({ id: i, name: `Player ${i + 1}` }));
     }
-
     this.setState({ players });
     this.changeView(Views.PlayerList);
   }
 
   changeView(view) {
     this.setState({ activeView: view });
-  }
-
-  setPlayerAttribute({ playerId, attribute, value }) {
-    const foundPlayer = this.state.players.find(
-      player => player.id === playerId,
-    );
-    foundPlayer[attribute] = value;
   }
 }
 

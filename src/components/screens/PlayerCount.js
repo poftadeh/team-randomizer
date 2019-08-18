@@ -27,8 +27,6 @@ export default class PlayerCount extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let foo = e.target.elements;
-    console.log('e', foo)
     const playerCount = e.target.elements.countInput.value;
     this.props.createPlayers(playerCount);
   }
