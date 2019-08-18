@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 export default class PlayerList extends Component {
-  render(): JSX.Element {
+  render() {
     return (
       <>
         {this.players.map(player => (

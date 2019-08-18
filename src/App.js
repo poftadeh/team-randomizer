@@ -3,10 +3,10 @@ import './App.css';
 import PlayerCount from './screens/PlayerCount';
 import PlayerList from './screens/PlayerList';
 
-enum Views {
+const Views = {
   PlayerCount,
   PlayerList,
-}
+};
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class App extends Component {
 
     this.createPlayers = this.createPlayers.bind(this);
   }
-  render(): JSX.Element {
+  render() {
     const { activeView } = this.state;
     return (
       <div className="d-flex flex-column align-items-center mt-5">
@@ -31,7 +31,7 @@ class App extends Component {
     );
   }
 
-  createPlayers(number): void {
+  createPlayers(number) {
     const players = [];
 
     for (let i = 0; i < number; i++) {
@@ -42,7 +42,7 @@ class App extends Component {
     this.changeView(Views.PlayerList);
   }
 
-  changeView(view): void {
+  changeView(view) {
     this.setState({ activeView: view });
   }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 export default class PlayerCount extends Component {
-  render(): JSX.Element {
+  render() {
     return (
       <>
         <h4 className="text-uppercase mb-4">Number of Players</h4>
@@ -20,7 +20,7 @@ export default class PlayerCount extends Component {
     );
   }
 
-  handleSubmit(e): void {
+  handleSubmit(e) {
     e.preventDefault();
     const playerCount: number = e.target.elements.option.value;
     this.props.createPlayers(playerCount);
