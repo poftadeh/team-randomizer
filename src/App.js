@@ -36,8 +36,8 @@ class App extends Component {
 
   createPlayers(number) {
     const players = [];
-    for (let i = 0; i < number; i++) {
-      players.push(new Player({ id: i, name: `Player ${i + 1}` }));
+    for (let i = 1; i <= number; i++) {
+      players.push(new Player({ id: i, name: `Player ${i}` }));
     }
     this.setState({ players });
     this.changeView(Views.PlayerList);
