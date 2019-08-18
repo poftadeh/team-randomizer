@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import PlayerCount from './screens/PlayerCount';
-import PlayerList from './screens/PlayerList';
+import PlayerCount from './components/screens/PlayerCount';
+import PlayerList from './components/screens/PlayerList';
 
 const Views = {
   PlayerCount,
@@ -24,9 +24,11 @@ class App extends Component {
     return (
       <div className="d-flex flex-column align-items-center mt-5">
         {activeView === Views.PlayerCount && (
-          <PlayerCount setPlayers={this.createPlayers} />
+          <PlayerCount createPlayers={this.createPlayers} />
         )}
-        {activeView === Views.PlayerList && <PlayerList />}
+        {activeView === Views.PlayerList && (
+          <PlayerList players={this.state.players} />
+        )}
       </div>
     );
   }
@@ -35,7 +37,7 @@ class App extends Component {
     const players = [];
 
     for (let i = 0; i < number; i++) {
-      players.push({ name: `Player ${i}`, veto: '' });
+      players.push({ id: i, name: `Player ${i + 1}`, veto: null });
     }
 
     this.setState({ players });
@@ -44,6 +46,13 @@ class App extends Component {
 
   changeView(view) {
     this.setState({ activeView: view });
+  }
+
+  setPlayerAttribute({ playerId, attribute, value }) {
+    const foundPlayer = this.state.players.find(
+      player => player.id === playerId,
+    );
+    foundPlayer[attribute] = value;
   }
 }
 

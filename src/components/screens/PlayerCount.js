@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 export default class PlayerCount extends Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
   render() {
     return (
       <>
@@ -9,6 +13,7 @@ export default class PlayerCount extends Component {
           <div className="d-flex flex-column align-items-center">
             <input
               type="number"
+              name="countInput"
               className="form-control col-4"
               max={20}
               required
@@ -22,7 +27,9 @@ export default class PlayerCount extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const playerCount: number = e.target.elements.option.value;
+    let foo = e.target.elements;
+    console.log('e', foo)
+    const playerCount = e.target.elements.countInput.value;
     this.props.createPlayers(playerCount);
   }
 }
