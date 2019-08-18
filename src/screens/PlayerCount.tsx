@@ -5,7 +5,7 @@ export default class PlayerCount extends Component {
     return (
       <>
         <h4 className="text-uppercase mb-4">Number of Players</h4>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div className="d-flex flex-column align-items-center">
             <input
               type="number"
@@ -18,5 +18,11 @@ export default class PlayerCount extends Component {
         </form>
       </>
     );
+  }
+
+  handleSubmit(e): void {
+    e.preventDefault();
+    const playerCount: number = e.target.elements.option.value;
+    this.props.createPlayers(playerCount);
   }
 }
