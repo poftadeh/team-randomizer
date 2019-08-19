@@ -13,6 +13,10 @@ html, body, #root {
   background-color: #eb2f06;
 }
 
+.btn-primary:active {
+  background-color: #e55039 !important;
+}
+
 .table {
   color: #ecf0f1;
   font-size: .9rem;
