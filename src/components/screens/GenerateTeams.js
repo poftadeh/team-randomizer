@@ -28,7 +28,7 @@ export default class GenerateTeams extends Component {
     try {
       this.constructTeams();
     } catch (e) {
-      console.log(e, JSON.stringify(this.state.teams));
+      console.log(e);
       this.setState({ teams: [] });
     }
   }
@@ -73,7 +73,6 @@ export default class GenerateTeams extends Component {
     const { players } = this.props;
     const teams = [{ players: [], vetos: [] }, { players: [], vetos: [] }];
 
-    // shuffle players
     let sortedPlayers = [...players].sort((a, b) =>
       a.veto === null ? 1 : 0.5 - Math.random(),
     );
@@ -90,11 +89,6 @@ export default class GenerateTeams extends Component {
       if (player.veto && availableTeam.vetos.indexOf(player.veto) === -1)
         availableTeam.vetos.push(player.veto);
     });
-
-    if (teams[0].players.length !== teams[1].players.length) {
-      console.log('t', teams, sortedPlayers);
-      throw new Error('Team player counts are uneven');
-    }
 
     this.setState({ teams });
   }
