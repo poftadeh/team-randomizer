@@ -1,7 +1,8 @@
-body {
+html, body, #root {
   background-color: #079992;
   color: #ecf0f1;
   letter-spacing: 3px;
+  height: 100%;
 }
 
 .btn-primary {
@@ -14,10 +15,19 @@ body {
 
 .table {
   color: #ecf0f1;
+  font-size: .75rem;
   background-color: #3c6382;
   max-width: 25rem;
 }
 
 .player-list {
   width: 15ch;
+}
+
+.player-count-screen {
+  
+}
+
+.player-count-screen__input {
+  width: 7ch;
 }
