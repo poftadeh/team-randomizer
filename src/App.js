@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import PlayerCount from './components/screens/PlayerCount';
 import PlayerList from './components/screens/PlayerList';
+import GenerateTeams from './components/screens/GenerateTeams';
 import { Player } from './types.js';
 
 const Views = {
@@ -20,17 +21,24 @@ class App extends Component {
     };
     this.previousScreen = this.state.activeView;
     this.createPlayers = this.createPlayers.bind(this);
+    this.changeView = this.changeView.bind(this);
+    this.goToPreviousScreen = this.goToPreviousScreen.bind(this);
   }
   render() {
-    const { activeView } = this.state;
+    const { activeView, players } = this.state;
     return (
       <div className="d-flex flex-column align-items-center mt-5">
         {activeView === Views.PlayerCount && (
           <PlayerCount createPlayers={this.createPlayers} />
         )}
         {activeView === Views.PlayerList && (
-          <PlayerList players={this.state.players} />
+          <PlayerList
+            players={players}
+            goToPreviousScreen={this.goToPreviousScreen}
+            changeView={this.changeView.bind(this, Views.GenerateTeams)}
+          />
         )}
+        {activeView === Views.GenerateTeams && <GenerateTeams players={players}/>}
       </div>
     );
   }
@@ -49,7 +57,7 @@ class App extends Component {
     this.setState({ activeView: view });
   }
 
-  goBack() {
+  goToPreviousScreen() {
     this.changeView(this.previousScreen);
   }
 }

@@ -14,8 +14,10 @@ export default class PlayerCount extends Component {
             <input
               type="number"
               name="countInput"
-              className="form-control col-4"
+              className="form-control"
+              min={2}
               max={20}
+              defaultValue={6}
               required
             />
             <button className="btn btn-primary mt-4">Next</button>
