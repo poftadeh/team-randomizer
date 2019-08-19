@@ -1,20 +1,20 @@
 body {
-  background-color: #487eb0;
+  background-color: #079992;
   color: #ecf0f1;
   letter-spacing: 3px;
 }
 
 .btn-primary {
-  background-color: #c0392b;
+  background-color: #b71540;
 }
 
 .btn-primary:hover {
-  background-color: #e74c3c
+  background-color: #eb2f06;
 }
 
 .table {
   color: #ecf0f1;
-  background-color: #34495e;
+  background-color: #3c6382;
   max-width: 25rem;
 }
 
