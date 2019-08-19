@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default props => {
-  const { players: team } = props;
+  const { team } = props;
 
   return (
     <table class="table">
@@ -13,12 +13,12 @@ export default props => {
         </tr>
       </thead>
       <tbody>
-        {team.map(player => {
+        {team.players.map((player, index) => {
           return (
             <tr key={player.id}>
-              <th scope="row">{player.id}</th>
+              <th scope="row">{index + 1}</th>
               <td>{player.name}</td>
-              <td>{player.veto}</td>
+              <td>{player.veto || 'None'}</td>
             </tr>
           );
         })}
