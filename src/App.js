@@ -38,7 +38,12 @@ class App extends Component {
             changeView={this.changeView.bind(this, Views.GenerateTeams)}
           />
         )}
-        {activeView === Views.GenerateTeams && <GenerateTeams players={players}/>}
+        {activeView === Views.GenerateTeams && (
+          <GenerateTeams
+            players={players}
+            goToPreviousScreen={this.goToPreviousScreen}
+          />
+        )}
       </div>
     );
   }

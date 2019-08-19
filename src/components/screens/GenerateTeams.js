@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import PlayerTable from '../utils/PlayerTable';
-import { get } from 'https';
-import { cpus } from 'os';
+import TeamResults from '../utils/TeamResults';
 
 export default class GenerateTeams extends Component {
   constructor(props) {
@@ -13,31 +11,17 @@ export default class GenerateTeams extends Component {
 
   render() {
     const { teams } = this.state;
-
-    if (teams && teams.length > 0) {
-      return (
-        <>
-          {teams.map((team, i) => (
-            <>
-              <h5>{`Team ${i + 1}`}</h5>
-              <PlayerTable team={team} />
-            </>
-          ))}
-        </>
-      );
-    } else if (teams && teams.length === 0) {
-      return (
-        <div className="alert alert-danger">
-          No teams found with current settings
-        </div>
-      );
-    } else {
-      return (
-        <>
-          <div>Generating...</div>
-        </>
-      );
-    }
+    return (
+      <>
+        <TeamResults teams={teams} />
+        <button
+          className="btn btn-primary"
+          onClick={this.props.goToPreviousScreen}
+        >
+          Back
+        </button>
+      </>
+    );
   }
 
   componentDidMount() {
@@ -102,12 +86,12 @@ export default class GenerateTeams extends Component {
       if (player.veto && availableTeam.vetos.indexOf(player.veto) === -1)
         availableTeam.vetos.push(player.veto);
     });
-    console.log('t', teams);
 
     if (teams[0].players.length !== teams[1].players.length) {
       throw new Error('Team player counts are uneven');
     }
 
+    console.log('t', teams);
     this.setState({ teams });
   }
 }
