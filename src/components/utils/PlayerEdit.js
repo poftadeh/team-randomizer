@@ -14,7 +14,7 @@ export default ({
         defaultValue={currentPlayer.name}
         onChange={handleInputChange}
       />
-      <div className="input-group-append w-25">
+      <div className="input-group-append player-list">
         <select className="custom-select" onChange={handleSelect} defaultValue={currentPlayer.veto || -1}>
           <option value={-1} onChange={handleSelect}>
             No Veto

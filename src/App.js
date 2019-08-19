@@ -25,7 +25,7 @@ class App extends Component {
   render() {
     const { activeView, players } = this.state;
     return (
-      <div className="d-flex flex-column align-items-center mt-5">
+      <div className="d-flex flex-column align-items-center mt-5 mx-auto col-lg-6">
         <h1 className="text-uppercase text-center mb-4">Team Randomizer</h1>
         {activeView === Views.PlayerCount && (
           <PlayerCount createPlayers={this.createPlayers} />

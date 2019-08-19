@@ -6,7 +6,7 @@ export default class PlayerList extends Component {
     const { goToPreviousScreen, changeView } = this.props;
     return (
       <div className="d-flex flex-column align-items-center container">
-        <h4 className="mb-4">Configure Players</h4>
+        <h4 className="mb-4 text-uppercase">Configure Players</h4>
         {this.props.players.map(player => (
           <div key={player.id} className="input-group mb-3 col-sm-12">
             <PlayerEdit

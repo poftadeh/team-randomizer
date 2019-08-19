@@ -4,7 +4,7 @@ export default ({ team, teamNumber }) => {
   return (
     <>
       <h5>{`Team ${teamNumber}`}</h5>
-      <table className="table  w-50">
+      <table className="table">
         <thead>
           <tr>
             <th>Name</th>
