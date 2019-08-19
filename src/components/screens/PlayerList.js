@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import PlayerEdit from '../utils/PlayerEdit';
 
 export default class PlayerList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      players: this.props.players,
+    }
+  }
+
   render() {
     const { goToPreviousScreen, changeView } = this.props;
     return (
@@ -17,6 +24,7 @@ export default class PlayerList extends Component {
               }}
               handleInputChange={e => {
                 player.setName(e.target.value);
+                this.setState({players: this.props.players})
               }}
             />
           </div>

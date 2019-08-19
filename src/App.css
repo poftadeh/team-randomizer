@@ -1,7 +1,6 @@
 body {
   background-color: #487eb0;
   color: #ecf0f1;
-  font-size: 62.5%;
   letter-spacing: 3px;
 }
 
@@ -15,9 +14,10 @@ body {
 
 .table {
   color: #ecf0f1;
-  background-color: #2980b9;
+  background-color: #34495e;
+  max-width: 25rem;
 }
 
 .player-list {
-  max-width: 10rem;
+  width: 15ch;
 }
