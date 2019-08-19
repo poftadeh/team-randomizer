@@ -74,6 +74,9 @@ export default class GenerateTeams extends Component {
     const teams = [{ players: [], vetos: [] }, { players: [], vetos: [] }];
     console.log('unsorted', players);
     let sortedPlayers = [...players].sort((a, b) => {
+      if (!a.veto && !b.veto) {
+        return 0.5 - Math.random();
+      }
       return a.veto > b.veto ? -1 : 1;
     });
 
