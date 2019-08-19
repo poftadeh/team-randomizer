@@ -72,11 +72,12 @@ export default class GenerateTeams extends Component {
   constructTeams() {
     const { players } = this.props;
     const teams = [{ players: [], vetos: [] }, { players: [], vetos: [] }];
+    console.log('unsorted', players);
+    let sortedPlayers = [...players].sort((a, b) => {
+      return a.veto > b.veto ? -1 : 1;
+    });
 
-    let sortedPlayers = [...players].sort((a, b) =>
-      a.veto === null ? 1 : 0.5 - Math.random(),
-    );
-
+    console.log('sorted', sortedPlayers);
     sortedPlayers.forEach(player => {
       const availableTeam = this.getAvailableTeam(player, teams);
       try {
