@@ -15,7 +15,7 @@ export default class GenerateTeams extends Component {
       <>
         <TeamResults teams={teams} />
         <button
-          className="btn btn-primary"
+          className="btn btn-lg btn-primary"
           onClick={this.props.goToPreviousScreen}
         >
           Back

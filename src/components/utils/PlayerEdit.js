@@ -1,17 +1,22 @@
 import React from 'react';
 
-export default props => {
-  const { currentPlayer, playerList, handleSelect } = props;
+export default ({
+  currentPlayer,
+  playerList,
+  handleSelect,
+  handleInputChange,
+}) => {
   return (
     <>
       <input
         type="text"
         className="form-control"
         defaultValue={currentPlayer.name}
+        onChange={handleInputChange}
       />
-      <div className="input-group-append">
+      <div className="input-group-append w-25">
         <select className="custom-select" onChange={handleSelect}>
-          <option value={-1}  onChange={handleSelect}>
+          <option value={-1} onChange={handleSelect}>
             No Veto
           </option>
           {playerList

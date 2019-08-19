@@ -4,21 +4,17 @@ export default ({ team, teamNumber }) => {
   return (
     <>
       <h5>{`Team ${teamNumber}`}</h5>
-      <table className="table">
+      <table className="table  w-50">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Player</th>
-            <th scope="col">Veto</th>
+            <th>Name</th>
           </tr>
         </thead>
         <tbody>
           {team.players.map((player, index) => {
             return (
               <tr key={player.id}>
-                <th scope="row">{index + 1}</th>
                 <td>{player.name}</td>
-                <td>{player.veto || 'None'}</td>
               </tr>
             );
           })}

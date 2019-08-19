@@ -15,14 +15,22 @@ export default class PlayerList extends Component {
               handleSelect={e => {
                 player.setVeto(e.target.value);
               }}
+              handleInputChange={e => {
+                player.setName(e.target.value);
+              }}
             />
           </div>
         ))}
-        <div className="row justify-content-around mt-3">
-          <button className="btn btn-primary" onClick={goToPreviousScreen}>
+        <div className="d-flex justify-content-around mt-3">
+          <button
+            className="btn btn-lg btn-primary m-3"
+            onClick={goToPreviousScreen}
+          >
             Back
           </button>
-          <button className="btn btn-primary" onClick={changeView}>Generate</button>
+          <button className="btn btn-lg btn-primary m-3" onClick={changeView}>
+            Generate
+          </button>
         </div>
       </div>
     );

@@ -21,27 +21,26 @@ class App extends Component {
     };
     this.previousScreen = this.state.activeView;
     this.createPlayers = this.createPlayers.bind(this);
-    this.changeView = this.changeView.bind(this);
-    this.goToPreviousScreen = this.goToPreviousScreen.bind(this);
   }
   render() {
     const { activeView, players } = this.state;
     return (
       <div className="d-flex flex-column align-items-center mt-5">
+        <h1 className="text-uppercase text-center mb-4">Team Randomizer</h1>
         {activeView === Views.PlayerCount && (
           <PlayerCount createPlayers={this.createPlayers} />
         )}
         {activeView === Views.PlayerList && (
           <PlayerList
             players={players}
-            goToPreviousScreen={this.goToPreviousScreen}
+            goToPreviousScreen={this.changeView.bind(this, Views.PlayerCount)}
             changeView={this.changeView.bind(this, Views.GenerateTeams)}
           />
         )}
         {activeView === Views.GenerateTeams && (
           <GenerateTeams
             players={players}
-            goToPreviousScreen={this.goToPreviousScreen}
+            goToPreviousScreen={this.changeView.bind(this, Views.PlayerList)}
           />
         )}
       </div>
@@ -58,12 +57,7 @@ class App extends Component {
   }
 
   changeView(view) {
-    this.previousScreen = this.state.activeView;
     this.setState({ activeView: view });
-  }
-
-  goToPreviousScreen() {
-    this.changeView(this.previousScreen);
   }
 }
 
