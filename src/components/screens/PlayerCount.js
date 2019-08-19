@@ -8,9 +8,9 @@ export default class PlayerCount extends Component {
   render() {
     return (
       <>
-        <h4 className="text-uppercase mb-4 mt-4">Number of Players:</h4>
+        <h4 className="text-uppercase mb-4 mt-5">Number of Players:</h4>
         <form onSubmit={this.handleSubmit}>
-          <div className="d-flex flex-column align-items-center mt-2">
+          <div className="d-flex flex-column align-items-center mt-4">
             <input
               type="number"
               name="countInput"
